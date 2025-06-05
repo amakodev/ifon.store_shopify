@@ -1,174 +1,422 @@
-{% comment %} Apple-inspired footer styling {% endcomment %}
+{% comment %} Premium Modern Footer Styling {% endcomment %}
 <style>
-  .footer-apple-inspired {
-    background: #f5f5f7;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 48px 0 32px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  .footer-premium {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.3), transparent);
+  }
+
+  .footer-premium::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+    pointer-events: none;
   }
   
-  .footer-apple-inspired .footer-content {
-    max-width: 1200px;
+  .footer-premium .footer-content {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    z-index: 1;
+
+    @media screen and (width >= 768px) {
+      padding: 5rem 3rem 2.5rem;
+    }
   }
   
-  .footer-apple-inspired .footer-main {
+  .footer-premium .footer-main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 48px;
-    margin-bottom: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+
+    @media screen and (width >= 1024px) {
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
   }
   
-  .footer-apple-inspired .footer-column h3 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1d1d1f;
-    margin-bottom: 16px;
-    letter-spacing: -0.022em;
+  .footer-premium .footer-column {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .footer-premium .footer-column:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .footer-premium .footer-column:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .footer-premium .footer-column:nth-child(4) {
+    animation-delay: 0.3s;
   }
   
-  .footer-apple-inspired .footer-column ul {
+  .footer-premium .footer-column h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  .footer-premium .footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 1px;
+  }
+  
+  .footer-premium .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
   
-  .footer-apple-inspired .footer-column li {
-    margin-bottom: 8px;
+  .footer-premium .footer-column li {
+    margin: 0;
   }
   
-  .footer-apple-inspired .footer-column a {
-    color: #6e6e73;
+  .footer-premium .footer-column a {
+    color: #cbd5e1;
     text-decoration: none;
-    font-size: 15px;
-    line-height: 1.47059;
-    letter-spacing: -0.022em;
-    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    border-radius: 0.375rem;
+    position: relative;
+  }
+
+  .footer-premium .footer-column a::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 1px;
+    background: #3b82f6;
+    transition: width 0.3s ease;
   }
   
-  .footer-apple-inspired .footer-column a:hover {
-    color: #007aff;
+  .footer-premium .footer-column a:hover {
+    color: #f8fafc;
+    transform: translateX(0.5rem);
+  }
+
+  .footer-premium .footer-column a:hover::before {
+    width: 0.25rem;
+  }
+
+  /* Newsletter Section */
+  .footer-premium .newsletter-signup {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+  }
+
+  .footer-premium .newsletter-signup:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(148, 163, 184, 0.2);
+    transform: translateY(-2px);
   }
   
-  .footer-apple-inspired .footer-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 24px;
+  .footer-premium .newsletter-signup h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+  }
+  
+  .footer-premium .newsletter-signup p {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .footer-premium .newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+
+    @media screen and (width < 640px) {
+      flex-direction: column;
+    }
+  }
+  
+  .footer-premium .newsletter-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    color: #f8fafc;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+
+    @media screen and (width < 640px) {
+      min-width: unset;
+    }
+  }
+
+  .footer-premium .newsletter-input::placeholder {
+    color: #94a3b8;
+  }
+  
+  .footer-premium .newsletter-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .footer-premium .newsletter-button {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+    white-space: nowrap;
+  }
+  
+  .footer-premium .newsletter-button:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.4);
+  }
+
+  .footer-premium .newsletter-button:active {
+    transform: translateY(0);
+  }
+  
+  .footer-premium .footer-bottom {
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    padding-top: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 1.5rem;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+
+    @media screen and (width < 768px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
   }
   
-  .footer-apple-inspired .footer-copyright {
-    color: #6e6e73;
-    font-size: 14px;
+  .footer-premium .footer-copyright {
+    color: #94a3b8;
+    font-size: 0.875rem;
     font-weight: 400;
+    letter-spacing: -0.01em;
   }
-  
-  .footer-apple-inspired .footer-social {
+
+  .footer-premium .footer-links {
     display: flex;
-    gap: 16px;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media screen and (width < 768px) {
+      justify-content: center;
+      gap: 1.5rem;
+    }
+  }
+
+  .footer-premium .footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-premium .footer-links a:hover {
+    color: #3b82f6;
   }
   
-  .footer-apple-inspired .footer-social a {
-    width: 32px;
-    height: 32px;
-    background: #ffffff;
-    border-radius: 8px;
+  .footer-premium .footer-social {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .footer-premium .footer-social a {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6e6e73;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #cbd5e1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
   }
   
-  .footer-apple-inspired .footer-social a:hover {
-    background: #007aff;
+  .footer-premium .footer-social a:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
     color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(59, 130, 246, 0.3);
   }
-  
-  .footer-apple-inspired .newsletter-signup {
-    background: white;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    margin-bottom: 32px;
+
+  .footer-premium .footer-social svg {
+    width: 1.125rem;
+    height: 1.125rem;
   }
-  
-  .footer-apple-inspired .newsletter-signup h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1d1d1f;
-    margin-bottom: 8px;
-  }
-  
-  .footer-apple-inspired .newsletter-signup p {
-    color: #6e6e73;
-    margin-bottom: 16px;
-    font-size: 15px;
-  }
-  
-  .footer-apple-inspired .newsletter-form {
+
+  /* Trust Indicators */
+  .footer-premium .trust-indicators {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+
+    @media screen and (width < 768px) {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
   }
-  
-  .footer-apple-inspired .newsletter-input {
-    flex: 1;
-    min-width: 200px;
-    padding: 12px 16px;
-    border: 1px solid #d2d2d7;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.2s ease;
-  }
-  
-  .footer-apple-inspired .newsletter-input:focus {
-    outline: none;
-    border-color: #007aff;
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
-  }
-  
-  .footer-apple-inspired .newsletter-button {
-    background: #007aff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 16px;
+
+  .footer-premium .trust-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
   }
-  
-  .footer-apple-inspired .newsletter-button:hover {
-    background: #0056b3;
-    transform: translateY(-1px);
+
+  .footer-premium .trust-indicator svg {
+    width: 1rem;
+    height: 1rem;
+    color: #10b981;
   }
-  
-  @media (max-width: 768px) {
-    .footer-apple-inspired .footer-main {
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile Optimizations */
+  @media screen and (width < 768px) {
+    .footer-premium .footer-main {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 2rem;
     }
-    
-    .footer-apple-inspired .footer-bottom {
-      flex-direction: column;
-      text-align: center;
+
+    .footer-premium .footer-content {
+      padding: 3rem 1.5rem 2rem;
     }
-    
-    .footer-apple-inspired .newsletter-form {
-      flex-direction: column;
+
+    .footer-premium .newsletter-signup {
+      padding: 1.5rem;
+      margin-bottom: 2rem;
     }
-    
-    .footer-apple-inspired .newsletter-input {
-      min-width: unset;
+
+    .footer-premium .footer-column h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .footer-premium .footer-column,
+    .footer-premium .newsletter-signup,
+    .footer-premium .footer-bottom,
+    .footer-premium .footer-column a,
+    .footer-premium .newsletter-input,
+    .footer-premium .newsletter-button,
+    .footer-premium .footer-social a,
+    .footer-premium .newsletter-signup {
+      animation: none;
+      transition: none;
+    }
+
+    .footer-premium .footer-column a:hover,
+    .footer-premium .newsletter-button:hover,
+    .footer-premium .footer-social a:hover,
+    .footer-premium .newsletter-signup:hover {
+      transform: none;
+    }
+  }
+
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .footer-premium {
+      background: #000;
+      color: #fff;
+    }
+
+    .footer-premium .footer-column a {
+      color: #fff;
+    }
+
+    .footer-premium .newsletter-input {
+      background: #333;
+      border-color: #666;
+      color: #fff;
     }
   }
 </style>
@@ -177,7 +425,7 @@
 <div
   class="
     section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}
-    footer-apple-inspired
+    footer-premium
     {% if section.settings.section_height != "" %} {{ section.settings.section_height | prepend: "section--height-" }}{% endif %}
   "
 >
@@ -203,7 +451,131 @@
       {%  render 'spacing-style', settings: section.settings %}
     "
   >
+    <!-- Newsletter Signup Section -->
+    <div class="newsletter-signup">
+      <h3>Stay in the Loop</h3>
+      <p>Get the latest updates on new products, exclusive offers, and tech insights delivered to your inbox.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input 
+          type="email" 
+          class="newsletter-input" 
+          placeholder="Enter your email address"
+          required
+          aria-label="Email address for newsletter"
+        >
+        <button type="submit" class="newsletter-button">
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <div class="footer-column">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="/collections/iphones">iPhones</a></li>
+          <li><a href="/collections/accessories">Accessories</a></li>
+          <li><a href="/collections/refurbished">Refurbished</a></li>
+          <li><a href="/collections/new-arrivals">New Arrivals</a></li>
+          <li><a href="/collections/sale">Special Offers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="/pages/contact">Contact Us</a></li>
+          <li><a href="/pages/shipping">Shipping Info</a></li>
+          <li><a href="/pages/returns">Returns & Exchanges</a></li>
+          <li><a href="/pages/warranty">Warranty</a></li>
+          <li><a href="/pages/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="/pages/about">About Us</a></li>
+          <li><a href="/pages/careers">Careers</a></li>
+          <li><a href="/blogs/news">News</a></li>
+          <li><a href="/pages/sustainability">Sustainability</a></li>
+          <li><a href="/pages/press">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="/pages/store-locator">Store Locator</a></li>
+          <li><a href="/account">My Account</a></li>
+          <li><a href="/pages/affiliate">Affiliate Program</a></li>
+          <li><a href="/pages/newsletter">Newsletter Archive</a></li>
+        </ul>
+      </div>
+    </div>
+
     {% content_for 'blocks' %}
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div>
+        <p class="footer-copyright">
+          © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+        </p>
+        <div class="trust-indicators">
+          <div class="trust-indicator">
+            <svg fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Secure Checkout
+          </div>
+          <div class="trust-indicator">
+            <svg fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Free Shipping
+          </div>
+          <div class="trust-indicator">
+            <svg fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            30-Day Returns
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-links">
+          <a href="/pages/privacy-policy">Privacy Policy</a>
+          <a href="/pages/terms-of-service">Terms of Service</a>
+          <a href="/pages/cookies">Cookie Policy</a>
+        </div>
+        
+        <div class="footer-social">
+          <a href="#" aria-label="Follow us on Facebook">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Follow us on Twitter">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Follow us on Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.875 2.026-1.297 3.323-1.297s2.448.422 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.405c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243 0-.49.122-.928.49-1.243.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.315.315.49.753.49 1.243 0 .49-.175.928-.49 1.243-.369.315-.807.49-1.297.49z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Follow us on LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
